@@ -14,13 +14,13 @@ class App extends React.Component {
 	}
 
 	onSubmit(event) {
-    event.preventDefault();
-    const {searchText} = this.state;
-    const url = `https://api.github.com/search/users?q=${searchText}`;
-    fetch(url)
-      .then(response => response.json())
-      .then(responseJson => this.setState({users: responseJson.items}));
-  }
+	    event.preventDefault();
+	    const {searchText} = this.state;
+	    const url = `https://api.github.com/search/users?q=${searchText}`;
+	    fetch(url)
+	      .then(response => response.json())
+	      .then(responseJson => this.setState({users: responseJson.items}));
+    }
 
 	render() {
 		const { searchText, users } = this.state;
