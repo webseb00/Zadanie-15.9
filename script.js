@@ -23,6 +23,7 @@ class App extends React.Component {
   }
 
 	render() {
+		const { searchText, users } = this.state;
 		return (
 			<div className="wrapper">
 				<form className="form-app" onSubmit={event => this.onSubmit(event)}>
@@ -31,10 +32,10 @@ class App extends React.Component {
 					type="text"
 					id="searchText"
 					onChange={event => this.onChangeHandle(event)}
-					value={this.state.searchText} 
-          placeholder="Type name of the user" />
+					value={searchText} 
+          			placeholder="Type name of the user" />
 				</form>
-				<UsersList users={this.state.users}/>
+				<UsersList users={users}/>
 			</div>
 		)
 	}
@@ -56,10 +57,11 @@ class UsersList extends React.Component {
 
 class User extends React.Component {
 	render() {
+		const { avatar_url, html_url, login } = this.props;
 		return (
 			<div className="user-box">
-				<img src={this.props.user.avatar_url} style={{maxWidth: '100px'}}/>
-				<a href={this.props.user.html_url} target="_blank">{this.props.user.login}</a>
+				<img src={avatar_url} style={{maxWidth: '100px'}}/>
+				<a href={html_url} target="_blank">{login}</a>
 			</div>
 		)
 	}

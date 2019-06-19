@@ -48,6 +48,10 @@ var App = function (_React$Component) {
 		value: function render() {
 			var _this3 = this;
 
+			var _state = this.state,
+			    searchText = _state.searchText,
+			    users = _state.users;
+
 			return React.createElement(
 				"div",
 				{ className: "wrapper" },
@@ -67,10 +71,10 @@ var App = function (_React$Component) {
 						onChange: function onChange(event) {
 							return _this3.onChangeHandle(event);
 						},
-						value: this.state.searchText,
+						value: searchText,
 						placeholder: "Type name of the user" })
 				),
-				React.createElement(UsersList, { users: this.state.users })
+				React.createElement(UsersList, { users: users })
 			);
 		}
 	}]);
@@ -120,14 +124,19 @@ var User = function (_React$Component3) {
 	_createClass(User, [{
 		key: "render",
 		value: function render() {
+			var _props = this.props,
+			    avatar_url = _props.avatar_url,
+			    html_url = _props.html_url,
+			    login = _props.login;
+
 			return React.createElement(
 				"div",
 				{ className: "user-box" },
-				React.createElement("img", { src: this.props.user.avatar_url, style: { maxWidth: '100px' } }),
+				React.createElement("img", { src: avatar_url, style: { maxWidth: '100px' } }),
 				React.createElement(
 					"a",
-					{ href: this.props.user.html_url, target: "_blank" },
-					this.props.user.login
+					{ href: html_url, target: "_blank" },
+					login
 				)
 			);
 		}
